@@ -70,16 +70,16 @@ const SideBar = () => {
       {/* Users List */}
       <div className="flex flex-col">
         {users.map((user) => {
-          const isOnline = onlineUsers.includes(user._id);
-          const unseenCount = unseenMessages[user._id] || 0;
+          const isOnline = onlineUsers.includes(user.id);
+          const unseenCount = unseenMessages[user.id] || 0;
 
           return (
             <div
-              key={user._id}
+              key={user.id}
               onClick={() => setSelectedUser(user)}
               className={`flex items-center gap-3 p-2 pl-4 rounded cursor-pointer max-sm:text-sm
                 ${
-                  selectedUser?._id === user._id
+                  selectedUser?.id === user.id
                     ? "bg-[#282142]/50"
                     : ""
                 }`}

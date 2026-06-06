@@ -30,7 +30,7 @@ export const AuthProvider = ({ children }) => {
     if (!user || socket?.connected) return;
 
     const newSocket = io(backendUrl, {
-      query: { userId: user._id },
+      query: { userId: user.id },
     });
 
     newSocket.on("getOnlineUsers", setOnlineUsers);

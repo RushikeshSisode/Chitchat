@@ -30,7 +30,7 @@ const ChatContainer = () => {
   /* Load messages */
   useEffect(() => {
     if (selectedUser) {
-      getMessages(selectedUser._id);
+      getMessages(selectedUser.id);
     }
   }, [selectedUser]);
 
@@ -93,14 +93,14 @@ const ChatContainer = () => {
           .map((msg) => {
             const senderId =
               msg?.senderId && typeof msg.senderId === "object"
-                ? msg.senderId._id
+                ? msg.senderId.id
                 : msg?.senderId;
 
-            const isMe = senderId === authUser?._id;
+            const isMe = senderId === authUser?.id;
 
             return (
               <div
-                key={msg._id}
+                key={msg.id}
                 className={`flex items-end gap-2 mb-4 ${
                   isMe ? "justify-end" : "flex-row-reverse justify-end"
                 }`}

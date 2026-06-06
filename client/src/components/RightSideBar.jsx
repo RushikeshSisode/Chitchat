@@ -15,7 +15,7 @@ const RightSideBar = () => {
     const fetchMedia = async () => {
       try {
         const { data } = await axios.get(
-          `/api/messages/${selectedUser._id}`
+          `/api/messages/${selectedUser.id}`
         );
 
         if (data.success) {
@@ -36,7 +36,7 @@ const RightSideBar = () => {
   //  No selected use → hide sidebar
   if (!selectedUser) return null;
 
-  const isOnline = onlineUsers.includes(selectedUser._id);
+  const isOnline = onlineUsers.includes(selectedUser.id);
 
   const openImage = (imageUrl) => {
     window.open(imageUrl, "_blank", "noopener,noreferrer");
@@ -76,7 +76,7 @@ const RightSideBar = () => {
           <div className="grid grid-cols-3 gap-2">
             {mediaMessages.map((msg) => (
               <img
-                key={msg._id}
+                key={msg.id}
                 src={msg.image}
                 alt="media"
                 onClick={() => openImage(msg.image)}

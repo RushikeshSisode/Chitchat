@@ -43,7 +43,7 @@ export const ChatProvider = ({ children }) => {
 
     try {
       const { data } = await axios.post(
-        `/api/messages/send/${selectedUser._id}`,
+        `/api/messages/send/${selectedUser.id}`,
         messageData
       );
 
@@ -65,17 +65,17 @@ export const ChatProvider = ({ children }) => {
 
       const senderId =
         typeof newMessage.senderId === "object"
-          ? newMessage.senderId._id
+          ? newMessage.senderId.id
           : newMessage.senderId;
 
       // Chat open → show message
-      if (selectedUser && senderId === selectedUser._id) {
+      if (selectedUser && senderId === selectedUser.id) {
         newMessage.seen = true;
         setMessages((prev) => [...prev, newMessage]);
 
         // mark as seen
         try {
-          await axios.put(`/api/messages/mark/${newMessage._id}`);
+          await axios.put(`/api/messages/mark/${newMessage.id}`);
         } catch {}
       } else {
         // Chat closed → increase unseen count
