@@ -1,6 +1,6 @@
 # Chitchat 💬
 
-A full-stack real-time chat application built with the MERN ecosystem, enabling instant messaging, image sharing, and live user status updates.
+A full-stack real-time chat application built with the PERN ecosystem, enabling instant messaging, image sharing, and live user status updates.
 
 ## 🚀 Live Demo
 
