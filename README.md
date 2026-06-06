@@ -1,4 +1,4 @@
-# QuickChat 💬
+# Chitchat 💬
 
 A full-stack real-time chat application built with the MERN ecosystem, enabling instant messaging, image sharing, and live user status updates.
 
